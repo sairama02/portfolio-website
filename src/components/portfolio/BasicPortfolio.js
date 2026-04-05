@@ -21,8 +21,8 @@ export default function BasicPortfolio({ projects, experiences }) {
       <PointerGlow />
 
       <div
-        className="pointer-events-none fixed inset-0 z-0 opacity-[0.025]"
-        style={{ backgroundImage: "url('textures/pattern.png')" }}
+        className="pointer-events-none fixed inset-0 z-0 overflow-hidden opacity-[0.025]"
+        style={{ backgroundImage: "url('/textures/pattern.png')" }}
       />
 
       <main className="min-h-screen bg-[#1a0f19] text-white">
