@@ -12,7 +12,7 @@ export default function ExperienceCard({ experience, index }) {
       viewport={{ once: true, amount: 0.25 }}
     >
       <motion.div
-        className="absolute left-0 top-6 h-6 w-6 rounded-full border border-neutral-700 bg-neutral-950"
+        className="absolute left-0 top-6 h-6 w-6 rounded-full border border-neutral-700 bg-[#1a0f19]"
         variants={{
           hidden: { opacity: 0 },
           visible: {
@@ -27,7 +27,7 @@ export default function ExperienceCard({ experience, index }) {
       />
 
       <motion.article
-        className="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-neutral-700 hover:bg-neutral-900"
+        className="rounded-2xl border border-[#1a0f19] bg-neutral-900/50 p-6 transition hover:border-neutral-700 hover:bg-neutral-900"
         variants={{
           hidden: { opacity: 0, x: 48 },
           visible: {

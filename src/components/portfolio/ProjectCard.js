@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "motion/react";
 
 export default function ProjectCard({ project, onSelect }) {
   return (
-    <article className="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition hover:border-neutral-700 hover:bg-neutral-900 hover:-translate-y-1">
+    <article className="rounded-2xl border border-[#1a0f19] bg-neutral-900/50 p-6 transition hover:border-neutral-700 hover:bg-neutral-900">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h3 className="text-xl font-semibold">{project.title}</h3>
@@ -16,16 +17,20 @@ export default function ProjectCard({ project, onSelect }) {
 
         <div className="flex flex-wrap gap-3 text-sm">
           {project.live_url &&
-            (project.live_url.startsWith("/") ? (
+            (project.live_url.includes("devpost") ? (
               <Link
                 href={project.live_url}
                 className="text-neutral-300 transition hover:text-white"
               >
-                <img
-                  src="/icons/live-site.png"
-                  alt="Live Site"
-                  title="View Live Site"                      
+                <motion.img
+                  src="/icons/devpost.svg"
+                  alt="Devpost"
+                  title="View Devpost"
                   className="h-6 w-6 invert"
+
+                  whileHover={{
+                    scale: 1.2,
+                  }}
                 />
               </Link>
             ) : (
@@ -35,11 +40,15 @@ export default function ProjectCard({ project, onSelect }) {
                 rel="noreferrer"
                 className="text-neutral-300 transition hover:text-white"
               >
-                <img
+                <motion.img
                   src="/icons/live-site.png"
                   alt="Live Site"
                   title="View Live Site"                      
                   className="h-6 w-6 invert"
+
+                  whileHover={{
+                    scale: 1.2,
+                  }}
                 />
               </a>
             ))}
@@ -51,11 +60,15 @@ export default function ProjectCard({ project, onSelect }) {
               rel="noreferrer"
               className="text-neutral-300 transition hover:text-white"
             >
-              <img
+              <motion.img
                 src="/icons/github.svg"
                 alt="GitHub"
                 title="View Codebase"
                 className="h-6 w-6 invert"
+
+                whileHover={{
+                  scale: 1.1,
+                }}
               />
             </a>
           )}
@@ -75,12 +88,32 @@ export default function ProjectCard({ project, onSelect }) {
         ))}
       </div>
 
-      <div className="mt-6">
+      <div className="mt-6 flex justify-end">
         <button
           onClick={() => onSelect(project)}
-          className="rounded-xl border border-neutral-700 px-4 py-2 text-sm text-neutral-200 transition hover:border-neutral-500 hover:text-white"
+          className="rounded-xl px-4 py-2 transition"
+          title="View More"
         >
-          View More
+          <motion.svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+
+            initial={{ x: 0 }}
+            whileHover={{ x: 6 }}
+            whileTap={{ x: 6 }}
+
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 20
+            }}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
+          </motion.svg>
         </button>
       </div>
     </article>

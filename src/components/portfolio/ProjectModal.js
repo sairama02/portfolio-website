@@ -44,9 +44,19 @@ export default function ProjectModal({ project, onClose }) {
       >
         <button
           onClick={onClose}
-          className="sticky top-4 float-right mr-4 mt-4 rounded-full border border-neutral-700 bg-neutral-900 px-3 py-1 text-sm text-neutral-300 transition hover:border-neutral-500 hover:text-white"
+          aria-label="Close"
+          className="sticky top-4 float-right mr-4 mt-4 flex h-9 w-9 items-center justify-center rounded-full backdrop-blur text-neutral-400 transition hover:border-neutral-500 hover:text-white"
         >
-          Close
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
+          </svg>
         </button>
 
         <div className="grid gap-8 p-6 md:grid-cols-[0.75fr_1.25fr] md:p-8">
@@ -67,7 +77,7 @@ export default function ProjectModal({ project, onClose }) {
             </div>
             
             {project.image_url && (
-            <div className="overflow-hidden rounded-2xl border border-neutral-800">
+            <div className="overflow-hidden rounded-xl border border-neutral-800">
               <div className="aspect-[16/10] w-full">
                 <ProjectImage project={project} />
               </div>
@@ -76,15 +86,15 @@ export default function ProjectModal({ project, onClose }) {
 
             <div className="flex flex-wrap gap-3 text-sm">
               {project.live_url &&
-                (project.live_url.startsWith("/") ? (
+                (project.live_url.includes("devpost") ? (
                   <Link
                     href={project.live_url}
-                    className="rounded-xl border border-neutral-700 px-4 py-2 text-neutral-200 transition hover:border-neutral-500 hover:text-white"
+                    className="rounded-xl px-4 py-2"
                   >
                     <img
-                      src="/icons/github.svg"
-                      alt="GitHub"
-                      title="View Codebase"
+                      src="/icons/devpost.svg"
+                      alt="Devpost"
+                      title="View Devpost"
                       className="h-6 w-6 invert"
                     />
                   </Link>
@@ -93,7 +103,7 @@ export default function ProjectModal({ project, onClose }) {
                     href={project.live_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-xl px-4 py-2 text-neutral-200 transition hover:border-neutral-500 hover:text-white"
+                    className="rounded-xl px-4 py-2"
                   >
                     <img
                       src="/icons/live-site.png"
@@ -109,7 +119,7 @@ export default function ProjectModal({ project, onClose }) {
                   href={project.github_url}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-xl border border-neutral-700 px-4 py-2 text-neutral-200 transition hover:border-neutral-500 hover:text-white"
+                  className="rounded-xl px-4 py-2"
                 >
                   <img
                     src="/icons/github.svg"

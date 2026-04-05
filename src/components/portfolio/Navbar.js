@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="sticky top-0 z-40 bg-neutral-950/80 backdrop-blur">
+    <div className="sticky top-0 z-40 bg-[#1a0f19]/80 backdrop-blur">
       <div className="flex w-full items-center justify-between px-15 py-2">
         <Link
           href="/"
