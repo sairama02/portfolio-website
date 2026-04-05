@@ -141,6 +141,10 @@ export default function BasicPortfolio({ projects, experiences }) {
           onClose={() => setSelectedProject(null)}
         />
       )}
+
+      <footer className="text-xs text-gray-400 text-right mt-2 pb-2 px-4">
+        Icons by Freepik for <a href="https://www.flaticon.com/free-icons/email" title="email icons">Email</a>, <a href="https://www.flaticon.com/free-icons/internet">Web</a>, and <a href="https://www.flaticon.com/free-icons/pin">Location</a> from Flaticon
+      </footer>
     </>
   );
 }
