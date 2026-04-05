@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/dojo/layout,_N_T_/dojo/page,_N_T_/dojo"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/dojo/__PAGE__",
+    "/dojo",
+    "/_index",
+    "/_head"
+  ]
+}
