@@ -50,7 +50,7 @@ export default function BasicPortfolio({ projects, experiences }) {
                       <img
                         src="/moi.png"
                         alt="Sai"
-                        className="h-[420px] w-auto object-contain lg:-mt-20 -mt-25"
+                        className="h-[420px] w-auto object-contain lg:-mt-30 -mt-25"
                       />
                     </div>
                   </div>

@@ -5,20 +5,12 @@ import Link from "next/link";
 import { getDetailBullets } from "@/src/lib/portfolio";
 
 function ProjectImage({ project }) {
-  if (project.image_url) {
-    return (
-      <img
-        src={project.image_url}
-        alt={`${project.title} preview`}
-        className="h-full w-full object-cover"
-      />
-    );
-  }
-
   return (
-    <div className="flex h-full w-full items-center justify-center bg-neutral-900 text-sm text-neutral-500">
-      Add project image here
-    </div>
+    <img
+      src={project.image_url}
+      alt={`${project.title} preview`}
+      className="h-full w-full object-cover"
+    />
   );
 }
 
@@ -73,12 +65,14 @@ export default function ProjectModal({ project, onClose }) {
                 </p>
               )}
             </div>
-
+            
+            {project.image_url && (
             <div className="overflow-hidden rounded-2xl border border-neutral-800">
               <div className="aspect-[16/10] w-full">
                 <ProjectImage project={project} />
               </div>
             </div>
+            )}
 
             <div className="flex flex-wrap gap-3 text-sm">
               {project.live_url &&
