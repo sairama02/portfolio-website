@@ -26,12 +26,12 @@ export default function BasicPortfolio({ projects, experiences }) {
       />
 
       <main className="min-h-screen bg-[#1a0f19] text-white">
-        <div className="mx-auto max-w-6xl px-6 py-0 sm:px-8 lg:px-2">
+        <div className="mx-auto max-w-6xl px-4 py-0 sm:px-6 lg:px-2">
           <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.3fr] lg:gap-16">
             <aside className="lg:fixed lg:top-16 ...">
               <div className="space-y-8">
                 <div>
-                  <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+                  <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                     Sai Rama Balakrishan
                   </h1>
                   <p className="mb-3 text-sm uppercase tracking-[0.25em] text-neutral-400">
@@ -50,7 +50,7 @@ export default function BasicPortfolio({ projects, experiences }) {
                       <img
                         src="/moi.png"
                         alt="Sai"
-                        className="h-[420px] w-auto object-contain lg:-mt-30 -mt-25"
+                        className="h-[260px] w-auto object-contain -mt-10 sm:h-[320px] sm:-mt-16 lg:h-[420px] lg:-mt-30"
                       />
                     </div>
                   </div>
@@ -61,9 +61,9 @@ export default function BasicPortfolio({ projects, experiences }) {
 
             
 
-            <div className="space-y-12 pt-12 lg:ml-[30rem] lg:w-[40rem]">
+            <div className="space-y-8 pt-6 sm:space-y-10 sm:pt-8 lg:space-y-12 lg:pt-12 lg:ml-[30rem] lg:w-[40rem]">
               <section id="about" className="border-b border-neutral-800 pb-12">
-                <h2 className="sticky top-12 z-20 -mx-12 border-b border-neutral-800 bg-neutral-950 px-6 py-3 text-2xl font-semibold lg:hidden bg-neutral-950/80 backdrop-blur">
+                <h2 className="sticky top-12 z-20 -mx-6 border-b border-neutral-800 bg-neutral-950/80 px-6 py-3 text-xl font-semibold backdrop-blur lg:hidden sm:-mx-8 sm:px-8 sm:text-2xl">
                   About
                 </h2>
 
@@ -90,7 +90,7 @@ export default function BasicPortfolio({ projects, experiences }) {
               </section>
 
               <section id="projects" className="border-b border-neutral-800 pb-12">
-                <h2 className="sticky top-12 z-20 -mx-12 border-b border-neutral-800 bg-neutral-950 px-6 py-3 text-2xl font-semibold lg:hidden bg-neutral-950/80 backdrop-blur">
+                <h2 className="sticky top-12 z-20 -mx-6 border-b border-neutral-800 bg-neutral-950/80 px-6 py-3 text-xl font-semibold backdrop-blur lg:hidden sm:-mx-8 sm:px-8 sm:text-2xl">
                   Projects
                 </h2>
 
@@ -107,7 +107,7 @@ export default function BasicPortfolio({ projects, experiences }) {
 
               {experiences?.length > 0 && (
                 <section id="experience" className="border-b border-neutral-800 pb-12">
-                  <h2 className="sticky top-12 z-20 -mx-12 border-b border-neutral-800 bg-neutral-950 px-6 py-3 text-2xl font-semibold lg:hidden bg-neutral-950/80 backdrop-blur">
+                  <h2 className="sticky top-12 z-20 -mx-6 border-b border-neutral-800 bg-neutral-950/80 px-6 py-3 text-xl font-semibold backdrop-blur lg:hidden sm:-mx-8 sm:px-8 sm:text-2xl">
                     Experience
                   </h2>
 
@@ -118,7 +118,7 @@ export default function BasicPortfolio({ projects, experiences }) {
               )}
 
               <section id="contact" className="pb-12">
-                <h2 className="sticky top-12 z-20 -mx-12 border-b border-neutral-800 bg-neutral-950 px-6 py-3 text-2xl font-semibold lg:hidden bg-neutral-950/80 backdrop-blur">
+                <h2 className="sticky top-12 z-20 -mx-6 border-b border-neutral-800 bg-neutral-950/80 px-6 py-3 text-xl font-semibold backdrop-blur lg:hidden sm:-mx-8 sm:px-8 sm:text-2xl">
                   Contact
                 </h2>
 

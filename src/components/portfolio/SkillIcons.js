@@ -63,7 +63,7 @@ export default function SkillIcons({ skills }) {
         My Technical Headspace
       </p>
 
-      <div className="relative mx-auto h-[220px] w-[450px] lg:h-[220px] lg:w-[400px]">
+      <div className="relative mx-auto h-[220px] w-full max-w-[300px] sm:max-w-[360px] lg:max-w-[400px] lg:h-[220px] lg:w-[400px]">
         {availableIcons.slice(0, iconPositions.length).map((skill, index) => {
           const position = iconPositions[index];
 
