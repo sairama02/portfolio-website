@@ -3,7 +3,7 @@
 import { Html, useTexture, useGLTF } from "@react-three/drei"
 import ContactForm from "../ContactForm"
 
-export default function Desk() {
+export default function Desk({ started }) {
   const desk = useTexture("/textures/desk.jpg")
   const { scene } = useGLTF("/models/pen_holder.glb")
 
@@ -20,7 +20,7 @@ export default function Desk() {
         <meshStandardMaterial color="white" />
       </mesh>
 
-        <Html 
+        {started && (<Html 
           transform
           rotation={[-Math.PI / 2, 0, 0]}
           position={[0.25, 1.02, 0]}
@@ -28,17 +28,25 @@ export default function Desk() {
           style={{ pointerEvents: "auto" }}
         >
           <div
-          style={{
-            width: "350px",
-            height: "280px",
-            overflow: "hidden",
-            borderRadius: "12px",
-            background: "white",
-          }}
+             onPointerDown={(e) => e.stopPropagation()}
+              onPointerUp={(e) => e.stopPropagation()}
+              onPointerMove={(e) => e.stopPropagation()}
+              onPointerOver={(e) => e.stopPropagation()}
+              onPointerOut={(e) => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                width: "350px",
+                height: "280px",
+                overflow: "hidden",
+                borderRadius: "12px",
+                background: "white",
+                pointerEvents: "auto",
+              }}
           >
             <ContactForm variant="dojo" />
           </div>
         </Html>
+        )}
     </group>
   )
 }

@@ -1,9 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { OrbitControls, useTexture } from "@react-three/drei";
 import { BackSide, Euler } from "three";
 import { useThree } from "@react-three/fiber";
-import { useState } from "react";
 
 import usePanCamera from "../../hooks/usePanCamera";
 import Column from "./Column";
@@ -13,7 +13,7 @@ import Waterfall from "./Waterfall";
 import Desk from "./Desk";
 import MenuButton from "./MenuButton";
 
-export default function Dojo({ started }) {
+export default function Dojo({ started, onMounted }) {
   const floors = useTexture("/textures/floors.jpg");
   const wallpaper = useTexture("/textures/wallpaper.jpg");
   const unmute = useTexture("/icons/volume-up.png");
@@ -24,6 +24,10 @@ export default function Dojo({ started }) {
 
   const [mute, setMute] = useState(false);
 
+  useEffect(() => {
+    onMounted?.();
+  }, [onMounted]);
+
   return (
     <>
       <OrbitControls
@@ -33,7 +37,7 @@ export default function Dojo({ started }) {
       />
 
       <primitive object={camera}>
-        {!isAtStart && (
+        {!isAtStart && started && (
           <MenuButton
             label="Back"
             fontSize={0.4}
@@ -44,14 +48,16 @@ export default function Dojo({ started }) {
           />
         )}
 
-        <MenuButton
-          icon={mute ? "/icons/volume-mute.png" : "/icons/volume-up.png"}
-          onClick={() => setMute(!mute)}
-          position={[-1.75, -0.8, -2]}
-          width={0.15}
-          height={0.15}
-          iconScale={[0.15, 0.15, 1]}
-        />
+        {started && (
+          <MenuButton
+            icon={mute ? "/icons/volume-mute.png" : "/icons/volume-up.png"}
+            onClick={() => setMute(!mute)}
+            position={[-1.75, -0.8, -2]}
+            width={0.15}
+            height={0.15}
+            iconScale={[0.15, 0.15, 1]}
+          />
+        )}
       </primitive>
 
       <mesh position={[10, 2.5, 10]}>
@@ -95,7 +101,7 @@ export default function Dojo({ started }) {
         mute={mute}
       />
 
-      <Desk />
+      <Desk started={started} />
     </>
   );
 }
