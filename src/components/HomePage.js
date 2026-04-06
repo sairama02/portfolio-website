@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-// import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 
 
 export default function HomePage() {
-  // redirect("/portfolio");
+  redirect("/portfolio");
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
       <div className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 text-center">
