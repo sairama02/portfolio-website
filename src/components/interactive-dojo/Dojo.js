@@ -6,12 +6,14 @@ import { BackSide, Euler } from "three";
 import { useThree } from "@react-three/fiber";
 
 import usePanCamera from "../../hooks/usePanCamera";
+import useFloorNavigation from "../../hooks/useFloorNavigation";
 import Column from "./Column";
 import Curtain from "./Curtain";
 import Chair from "./Chair";
 import Waterfall from "./Waterfall";
 import Desk from "./Desk";
 import MenuButton from "./MenuButton";
+import FloorArrow from "./FloorArrow";
 
 export default function Dojo({ started, onMounted }) {
   const floors = useTexture("/textures/floors.jpg");
@@ -19,8 +21,14 @@ export default function Dojo({ started, onMounted }) {
   const unmute = useTexture("/icons/volume-up.png");
   const muted = useTexture("/icons/volume-mute.png");
 
-  const { panCamera, goToStart, isAtStart, controlsRef } = usePanCamera();
   const { camera } = useThree();
+  const { panCamera, goToStart, isAtStart, controlsRef } = usePanCamera();
+  const { hoverPoint, handleFloorMove, handleFloorLeave, handleFloorClick,} = useFloorNavigation({
+    started,
+    camera,
+    controlsRef,
+    panCamera,
+  });
 
   const [mute, setMute] = useState(false);
 
@@ -90,10 +98,17 @@ export default function Dojo({ started, onMounted }) {
       <mesh
         position={[10, 0.01, 10]}
         rotation={new Euler(Math.PI / 2, 0, 0)}
+        onPointerMove={handleFloorMove}
+        onPointerLeave={handleFloorLeave}
+        onClick={handleFloorClick}
       >
         <planeGeometry args={[20, 20]} />
         <meshStandardMaterial map={floors} side={BackSide} />
       </mesh>
+
+      {started && hoverPoint && (
+        <FloorArrow position={hoverPoint} camera={camera} />
+      )}
 
       <Waterfall
         position={[4.1, 0, 0]}
