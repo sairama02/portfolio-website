@@ -1,9 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
-import { formatExperienceDateRange } from "@/src/lib/portfolio";
+import { formatExperienceDateRange, getDetailBullets } from "@/src/lib/portfolio";
+import { useMemo } from "react";
 
 export default function ExperienceCard({ experience, index }) {
+  const bullets = useMemo(() => getDetailBullets(experience.description), [experience])
+  
   return (
     <motion.div
       className="relative pl-10"
@@ -78,9 +81,14 @@ export default function ExperienceCard({ experience, index }) {
           </div>
         </div>
 
-        <p className="mt-4 leading-7 text-neutral-300">
-          {experience.description}
-        </p>
+        <ul className="mt-4 space-y-3 text-neutral-300">
+          {bullets.map((bullet, index) => (
+            <li key={`${experience.id}-bullet-${index}`} className="flex gap-3">
+              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-neutral-400" />
+              <span className="leading-7">{bullet}</span>
+            </li>
+          ))}
+        </ul>
       </motion.article>
     </motion.div>
   );
