@@ -9,6 +9,7 @@ import SkillIcons from "./SkillIcons";
 import ContactForm from "../ContactForm";
 import SectionMenu from "./SectionMenu";
 import PointerGlow from "./PointerGlow";
+import BackToTopButton from "./BackToTopButton";
 import { getUniqueSkills } from "@/src/lib/portfolio";
 
 export default function BasicPortfolio({ projects, experiences }) {
@@ -25,7 +26,7 @@ export default function BasicPortfolio({ projects, experiences }) {
         style={{ backgroundImage: "url('/textures/pattern.png')" }}
       />
 
-      <main className="min-h-screen bg-[#1a0f19] text-white">
+      <main className="min-h-screen bg-[#1a0f19] text-white overflow-hidden">
         <div className="mx-auto max-w-6xl px-4 py-0 sm:px-6 lg:px-2">
           <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.3fr] lg:gap-16">
             <aside className="lg:fixed lg:top-16 ...">
@@ -141,6 +142,10 @@ export default function BasicPortfolio({ projects, experiences }) {
           onClose={() => setSelectedProject(null)}
         />
       )}
+
+      <div className="hidden lg:block">
+        <BackToTopButton />
+      </div>
 
       <footer className="text-xs text-gray-400 text-right mt-2 pb-2 px-4">
         Icons by Freepik for <a href="https://www.flaticon.com/free-icons/email" title="email icons">Email</a>, <a href="https://www.flaticon.com/free-icons/internet">Web</a>, and <a href="https://www.flaticon.com/free-icons/pin">Location</a> from Flaticon
